@@ -1,0 +1,26 @@
+### Health
+GET http://localhost:8080/health
+
+### Upload PDF
+# Replace file path on your machine
+# This requires an HTTP client that supports multipart file upload.
+POST http://localhost:8080/upload/pdf/pdf
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="file"; filename="sample.pdf"
+Content-Type: application/pdf
+
+< ./sample.pdf
+------WebKitFormBoundary--
+
+### Ask question
+POST http://localhost:8080/qa/ask-question
+Content-Type: application/json
+
+{
+  "document_id": "PUT_DOCUMENT_ID_HERE",
+  "session_id": "optional-session-id",
+  "question": "What does the document say about ...?"
+}
+
